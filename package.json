@@ -1,16 +1,12 @@
 {
-  "name": "wpforms-extract-files",
+  "name": "csv-into-zip",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://martini024.github.io/csv-into-zip",
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "antd": "^4.15.4",
     "file-saver": "^2.0.5",
-    "jquery": "^3.6.0",
     "jszip": "^3.6.0",
     "jszip-utils": "^0.1.0",
     "papaparse": "^5.3.0",
@@ -24,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-	"deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

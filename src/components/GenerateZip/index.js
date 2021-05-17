@@ -24,24 +24,8 @@ export default function GenerateZip() {
 
 	const onFinish = () => {
 		const value = form.getFieldsValue()
-		const {
-			csvFile,
-			groupBy,
-			urlColumns,
-			folderNameStruct,
-			fileNameStruct,
-			separator,
-			zipFileName,
-		} = value
-		generateZipFromCSV(
-			csvFile,
-			groupBy,
-			urlColumns,
-			folderNameStruct,
-			fileNameStruct,
-			separator,
-			zipFileName,
-		)
+		const { csvFile, groupBy, urlColumns, folderNameStruct, separator, zipFileName } = value
+		generateZipFromCSV(csvFile, groupBy, urlColumns, folderNameStruct, separator, zipFileName)
 	}
 
 	useEffect(() => {
@@ -94,34 +78,8 @@ export default function GenerateZip() {
 					<Form.Item label="URL Columns" name="urlColumns" required>
 						<Select mode="multiple" options={columns} />
 					</Form.Item>
-					<Form.Item
-						noStyle
-						shouldUpdate={(prev, curr) => {
-							return prev.groupBy !== curr.groupBy
-						}}
-					>
-						{({ getFieldValue }) => (
-							<>
-								{getFieldValue('groupBy') === 'ROW' && (
-									<Form.Item
-										label="Folder Name Structure"
-										name="folderNameStruct"
-										required
-									>
-										<Select mode="multiple" options={columns} />
-									</Form.Item>
-								)}
-								{getFieldValue('groupBy') === 'COLUMN' && (
-									<Form.Item
-										label="File Name Structure"
-										name="fileNameStruct"
-										required
-									>
-										<Select mode="multiple" options={columns} />
-									</Form.Item>
-								)}
-							</>
-						)}
+					<Form.Item label="Folder Name Structure" name="folderNameStruct" required>
+						<Select mode="multiple" options={columns} />
 					</Form.Item>
 					<Form.Item label="Separator" name="separator" initialValue="_" required>
 						<Input type="text" maxLength="1" />

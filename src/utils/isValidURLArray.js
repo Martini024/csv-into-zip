@@ -1,4 +1,4 @@
-export default function isValidURL(str) {
+export function isValidURL(str) {
 	var pattern = new RegExp(
 		'^(https?:\\/\\/)?' + // protocol
 			'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
@@ -9,4 +9,14 @@ export default function isValidURL(str) {
 		'i',
 	) // fragment locator
 	return !!pattern.test(str)
+}
+
+export default function isValidURLArray(array) {
+	let isValid = true
+	if (array)
+		array.forEach((el) => {
+			if (!isValidURL(el)) isValid = false
+		})
+	else return false
+	return isValid
 }

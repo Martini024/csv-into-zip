@@ -3,7 +3,7 @@ import { Button, Form, Modal, Input, Select } from 'antd'
 import generateZipFromCSV from '../../utils/generateZipFromCSV'
 import getCSVColumns from '../../utils/getCSVColumns'
 
-export default function GenerateZip() {
+export default function GenerateZip({ onUpdate, onStartDownload, onFinishDownload }) {
 	const [form] = Form.useForm()
 	const [csvFile, setCSVFile] = useState(null)
 	const [visible, setVisible] = useState(false)
@@ -23,9 +23,19 @@ export default function GenerateZip() {
 	const onCancel = () => hideModal()
 
 	const onFinish = () => {
+		onStartDownload()
 		const value = form.getFieldsValue()
 		const { csvFile, groupBy, urlColumns, folderNameStruct, separator, zipFileName } = value
-		generateZipFromCSV(csvFile, groupBy, urlColumns, folderNameStruct, separator, zipFileName)
+		generateZipFromCSV(
+			csvFile,
+			groupBy,
+			urlColumns,
+			folderNameStruct,
+			separator,
+			zipFileName,
+			onUpdate,
+			onFinishDownload,
+		)
 	}
 
 	useEffect(() => {

@@ -12,6 +12,8 @@ export default function generateZipFromCSV(
 	folderNameStruct = [],
 	separator = '_',
 	zipFileName = 'file_bundle',
+	onUpdate = () => {},
+	onFinishDownload = () => {},
 ) {
 	let zip = new JSZip()
 	Papa.parse(csvFile, {
@@ -59,7 +61,8 @@ export default function generateZipFromCSV(
 					}
 				})
 			})
-			zip.generateAsync({ type: 'blob' }).then((content) => {
+			zip.generateAsync({ type: 'blob' }, onUpdate).then((content) => {
+				onFinishDownload()
 				saveAs(content, zipFileName)
 			})
 		},

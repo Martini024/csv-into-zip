@@ -75,20 +75,32 @@ export default function GenerateZip({ onUpdate, onStartDownload, onFinishDownloa
 						<Select
 							options={[
 								{
-									label: 'Row',
+									label: 'Row - zipFolder/whose/urlColumn/file',
 									value: 'ROW',
 								},
 								{
-									label: 'Column',
+									label: 'Column - zipFolder/urlColumn/whose/file',
 									value: 'COLUMN',
 								},
 							]}
 						/>
 					</Form.Item>
-					<Form.Item label="URL Columns" name="urlColumns" required>
+					<Form.Item
+						label="URL Columns"
+						name="urlColumns"
+						required
+						tooltip={{ title: 'Please choose the columns containing url for download' }}
+					>
 						<Select mode="multiple" options={columns} />
 					</Form.Item>
-					<Form.Item label="Folder Name Structure" name="folderNameStruct" required>
+					<Form.Item
+						label="Folder Name Structure"
+						name="folderNameStruct"
+						required
+						tooltip={{
+							title: 'Please choose the folder name of "whose" (concatenated by separator)',
+						}}
+					>
 						<Select mode="multiple" options={columns} />
 					</Form.Item>
 					<Form.Item label="Separator" name="separator" initialValue="_" required>

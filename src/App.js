@@ -1,14 +1,10 @@
-import logo from './logo.svg'
-import { useState } from 'react'
 import { GithubOutlined } from '@ant-design/icons'
-import { Space, Button, Progress, Row, Typography, message } from 'antd'
-
-import './App.css'
+import { Button, message, Progress, Space } from 'antd'
 import 'antd/dist/antd.css'
+import { useState } from 'react'
+import './App.css'
 import GenerateZip from './components/GenerateZip/index'
-import getFileName from './utils/getFileName'
-
-const { Paragraph } = Typography
+import logo from './logo.svg'
 
 function App() {
 	const [loading, setLoading] = useState(false)
@@ -27,9 +23,9 @@ function App() {
 	}
 
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
+		<div className="app">
+			<header className="app-header">
+				<img src={logo} className="app-logo" alt="logo" />
 				<p>Batch download files from urls inside csv file.</p>
 				<Space direction="vertical">
 					<GenerateZip

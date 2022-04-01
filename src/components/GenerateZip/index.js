@@ -41,7 +41,8 @@ export default function GenerateZip({ onUpdate, onStartDownload, onFinishDownloa
 	useEffect(() => {
 		if (csvFile) {
 			getCSVColumns(csvFile).then((columns) => {
-				setColumns(columns.map((column) => ({ label: column, value: column })))
+				const set = new Set(columns)
+				setColumns([...set].map((column) => ({ label: column, value: column })))
 			})
 		}
 	}, [csvFile])

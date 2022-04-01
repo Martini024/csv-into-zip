@@ -4,16 +4,16 @@
   "private": true,
   "homepage": "http://martini024.github.io/csv-into-zip",
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "antd": "^4.15.4",
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.19.3",
     "file-saver": "^2.0.5",
-    "jszip": "^3.6.0",
+    "jszip": "^3.8.0",
     "jszip-utils": "^0.1.0",
-    "papaparse": "^5.3.0",
+    "papaparse": "^5.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,6 +41,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.2.3"
   }
 }
